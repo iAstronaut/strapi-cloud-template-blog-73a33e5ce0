@@ -1,12 +1,23 @@
-module.exports = [
-  'strapi::logger',
+export default [
   'strapi::errors',
-  'strapi::security',
-  'strapi::cors',
+  {
+    name: 'strapi::favicon',
+    config: {
+      path: './public/uploads/favicon.ico',
+    },
+  },
+  'strapi::public',
+  {
+    name: 'strapi::cors',
+    config: {
+      enabled: true,
+      headers: '*',
+    },
+  },
   'strapi::poweredBy',
+  'strapi::logger',
   'strapi::query',
   'strapi::body',
   'strapi::session',
-  'strapi::favicon',
-  'strapi::public',
+  'strapi::security',
 ];
